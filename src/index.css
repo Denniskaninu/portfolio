@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #5D5CDE, #818CF8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #4C46C7, #6366F1);
+}
+
+/* Glassmorphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #5D5CDE, #818CF8, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Tech stack icons rotation */
+.tech-icon {
+  transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: rotateY(180deg) scale(1.1);
+}
+
+/* Navigation blur effect */
+.nav-blur {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(93, 92, 222, 0.1);
+}
+
+.dark .nav-blur {
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+/* Typing effect */
+.typing-text {
+  overflow: hidden;
+  border-right: 3px solid #5D5CDE;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Project card tech stack tags */
+.tech-tag {
+  background: linear-gradient(135deg, rgba(93, 92, 222, 0.1), rgba(129, 140, 248, 0.1));
+  border: 1px solid rgba(93, 92, 222, 0.2);
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: linear-gradient(135deg, rgba(93, 92, 222, 0.2), rgba(129, 140, 248, 0.2));
+  transform: translateY(-2px);
+}
+
+/* Section reveal animation */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contact form focus effects */
+.form-input {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(93, 92, 222, 0.1);
+}
