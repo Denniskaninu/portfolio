@@ -30,7 +30,7 @@ export const skillsData = {
       { name: "Django (Python)", icon: <SiDjango />, color: "blue" },
       { name: "Supabase", icon: <SiSupabase />, color: "green" },
       { name: "Firebase", icon: <SiFirebase />, color: "orange" },
-      { name: "GraphQL", icon: <SiGraphql />, color: "blue" }
+      { name: "GraphQL & RESTFUL API", icon: <SiGraphql />, color: "blue" }
     ]
   },
   tools: {
