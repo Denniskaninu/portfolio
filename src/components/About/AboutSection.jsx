@@ -95,7 +95,7 @@ const AboutSection = () => {
               Building the future, one line of code at a time
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              With over 5 years of experience in full-stack development, I specialize in creating robust, 
+              With over 1 year of experience in software development, I specialize in creating robust, 
               scalable web applications that deliver exceptional user experiences. My journey began with a 
               curiosity for problem-solving and has evolved into a passion for crafting elegant solutions.
             </p>

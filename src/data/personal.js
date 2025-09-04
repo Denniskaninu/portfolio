@@ -15,8 +15,7 @@ export const personalInfo = {
   },
   stats: [
     { value: "5+", label: "Projects Completed" },
-    { value: "2+", label: "Years Experience" },
-    { value: "20+", label: "Happy Clients" },
+    { value: "1+", label: "Years Experience" },
     { value: "15+", label: "Technologies" }
   ]
 };
