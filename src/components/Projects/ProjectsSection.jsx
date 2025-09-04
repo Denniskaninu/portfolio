@@ -26,7 +26,7 @@ const ProjectsSection = () => {
         {/* View More Projects Button */}
         <div className="text-center mt-12">
           <a 
-            href="https://github.com/alexjohnson" 
+            href="https://github.com/denniskaninu" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center bg-gray-900 dark:bg-gray-700 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-300 hover:scale-105"
