@@ -20,6 +20,15 @@ const findImage = (id: string): ImagePlaceholder => {
 
 export const projects: Project[] = [
   {
+    id: 'project-chama-sync',
+    title: 'ChamaSmart Sync',
+    description: 'A scalable and secure platform using Google AI and Genkit to validate and automate financial transactions, built with a modern tech stack for developer productivity.',
+    techStack: ['Next.js', 'Firebase', 'Google AI', 'Genkit', 'TypeScript', 'Zod'],
+    githubUrl: 'https://github.com/Denniskaninu/chama-smart-sync.git',
+    liveDemoUrl: 'https://chama-smart-snyc.netlify.app/',
+    image: findImage('chama-sync'),
+  },
+  {
     id: 'project-1',
     title: 'AI-Powered E-commerce Platform',
     description: 'A cutting-edge e-commerce platform that uses AI for personalized recommendations and dynamic pricing. Built with a microservices architecture.',
