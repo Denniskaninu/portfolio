@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import { motion } from 'framer-motion';
 
 import { submitContactForm, type FormState } from '@/app/actions';
@@ -53,7 +53,7 @@ const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: strin
 export default function ContactSection() {
   const { toast } = useToast();
   const initialState: FormState = { message: '', success: false };
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
