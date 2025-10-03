@@ -8,37 +8,37 @@ const skillCategories = [
   {
     category: 'Frontend',
     icon: <Code className="h-5 w-5" />,
-    skills: ["React (TypeScript)", "Next.js", "HTML5, CSS3, TailwindCSS"],
+    skills: ["React (TypeScript)", "Next.js", "HTML5, CSS3, TailwindCSS", "WebAssembly (WASM)", "Framer Motion"],
   },
   {
     category: 'Backend',
     icon: <Server className="h-5 w-5" />,
-    skills: ["Python (Django)", "Node.js (Express)", "REST & GraphQL APIs"],
+    skills: ["Python (Django, FastAPI)", "Node.js (Express)", "Go (Golang)", "REST & GraphQL APIs", "Microservices"],
   },
   {
     category: 'Databases',
     icon: <Database className="h-5 w-5" />,
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Supabase (BaaS)", "Firebase (real-time database & auth)"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Vector Databases", "Supabase", "Firebase"],
   },
   {
     category: 'DevOps & Cloud',
     icon: <Cloud className="h-5 w-5" />,
-    skills: ["Docker, GitHub Actions (CI/CD)", "AWS (EC2, S3, Lambda)", "Kubernetes (basic deployment & scaling)"],
+    skills: ["Docker", "Kubernetes", "GitHub Actions (CI/CD)", "AWS (EC2, S3, Lambda)", "Terraform (IaC)"],
   },
   {
     category: 'Developer Tools',
     icon: <Terminal className="h-5 w-5" />,
-    skills: ["Git & GitHub", "VS Code, Linux CLI", "Postman / Insomnia (API testing)"],
+    skills: ["Git & GitHub", "VS Code", "Linux CLI", "Postman / Insomnia"],
   },
   {
     category: 'Testing',
     icon: <TestTube className="h-5 w-5" />,
-    skills: ["Pytest (Python)", "Jest (JavaScript/TypeScript)"],
+    skills: ["Pytest (Python)", "Jest (JavaScript/TypeScript)", "Cypress (E2E)"],
   },
     {
     category: 'Other Skills',
     icon: <Lock className="h-5 w-5" />,
-    skills: ["Authentication & Security (OAuth2, JWT, HTTPS)", "System Design & Scalability Principles", "AI API Integration (OpenAI, HuggingFace)"],
+    skills: ["Auth (OAuth2, JWT)", "System Design", "Scalability Principles", "AI Integration (Genkit, LangChain)"],
   },
 ];
 
