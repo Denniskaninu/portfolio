@@ -100,22 +100,18 @@ export default function AboutSection() {
         <p className="mt-4 text-lg text-muted-foreground">A brief introduction to my skills and background.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
         
-        <div className="lg:col-span-1 space-y-8">
-            <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
-                <CardContent className="p-4">
-                    <div className="aspect-square relative rounded-lg overflow-hidden">
-                        <Image
-                            src="https://lh3.googleusercontent.com/gg-dl/AJfQ9KThWEf1AwYA17NXo3kf0x204Mc47S2fplpBlU4jg69D1GUL1orsSt61zyyH1QjNo7-iZCxwNoi21NumpS7JK2Qu9m1PaVrdT9bHEvj0QS2C90QGKVVOvxk4ScMUZsTEU236Crc-sv-TRlFYvzpKUALbMujQ4nn3Wn69YVyTrdI8tYz2=s1024"
-                            alt="A photo of the developer"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
+        <div className="lg:col-span-1 flex flex-col items-center space-y-8">
+            <div className="relative w-64 h-64">
+                <Image
+                    src="https://lh3.googleusercontent.com/gg-dl/AJfQ9KThWEf1AwYA17NXo3kf0x204Mc47S2fplpBlU4jg69D1GUL1orsSt61zyyH1QjNo7-iZCxwNoi21NumpS7JK2Qu9m1PaVrdT9bHEvj0QS2C90QGKVVOvxk4ScMUZsTEU236Crc-sv-TRlFYvzpKUALbMujQ4nn3Wn69YVyTrdI8tYz2=s1024"
+                    alt="A photo of the developer"
+                    fill
+                    className="object-cover rounded-full border-4 border-primary/20 shadow-lg"
+                />
+            </div>
+            <Card className="w-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
               <CardHeader>
                 <CardTitle>Education</CardTitle>
               </CardHeader>
@@ -126,8 +122,8 @@ export default function AboutSection() {
             </Card>
         </div>
 
-        <div className="lg:col-span-2 space-y-8">
-            <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
+        <div className="lg:col-span-2">
+            <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
               <CardHeader>
                 <CardTitle>Technical Summary</CardTitle>
               </CardHeader>
