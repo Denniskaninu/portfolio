@@ -2,33 +2,43 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Server, Code, BrainCircuit, Cloud, Cpu } from 'lucide-react';
+import { Server, Code, Database, Cloud, Terminal, TestTube, Lock } from 'lucide-react';
 
 const skillCategories = [
   {
     category: 'Frontend',
     icon: <Code className="h-5 w-5" />,
-    skills: ["Next.js", "React", "Tailwind CSS", "Qwik", "HTMX", "Framer Motion"],
+    skills: ["React (TypeScript)", "Next.js", "HTML5, CSS3, TailwindCSS"],
   },
   {
     category: 'Backend',
     icon: <Server className="h-5 w-5" />,
-    skills: ["Node.js", "Python", "Bun", "GraphQL", "tRPC", "Rust"],
+    skills: ["Python (Django)", "Node.js (Express)", "REST & GraphQL APIs"],
   },
   {
     category: 'Databases',
-    icon: <Cpu className="h-5 w-5" />,
-    skills: ["PostgreSQL", "MongoDB", "Redis", "VectorDB", "Firebase"],
-  },
-  {
-    category: 'AI & ML',
-    icon: <BrainCircuit className="h-5 w-5" />,
-    skills: ["Genkit", "TensorFlow", "PyTorch", "Scikit-learn", "LangChain", "Firebase GenAI"],
+    icon: <Database className="h-5 w-5" />,
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Supabase (BaaS)", "Firebase (real-time database & auth)"],
   },
   {
     category: 'DevOps & Cloud',
     icon: <Cloud className="h-5 w-5" />,
-    skills: ["Docker", "Kubernetes", "Firebase", "AWS", "Terraform", "CI/CD"],
+    skills: ["Docker, GitHub Actions (CI/CD)", "AWS (EC2, S3, Lambda)", "Kubernetes (basic deployment & scaling)"],
+  },
+  {
+    category: 'Developer Tools',
+    icon: <Terminal className="h-5 w-5" />,
+    skills: ["Git & GitHub", "VS Code, Linux CLI", "Postman / Insomnia (API testing)"],
+  },
+  {
+    category: 'Testing',
+    icon: <TestTube className="h-5 w-5" />,
+    skills: ["Pytest (Python)", "Jest (JavaScript/TypeScript)"],
+  },
+    {
+    category: 'Other Skills',
+    icon: <Lock className="h-5 w-5" />,
+    skills: ["Authentication & Security (OAuth2, JWT, HTTPS)", "System Design & Scalability Principles", "AI API Integration (OpenAI, HuggingFace)"],
   },
 ];
 
@@ -93,11 +103,11 @@ export default function AboutSection() {
         <div className="lg:col-span-3">
             <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
                 <CardHeader>
-                    <CardTitle>Technical Skills</CardTitle>
+                    <CardTitle>🛠 Technical Skills</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <Tabs defaultValue="Frontend" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto">
+                        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 h-auto">
                             {skillCategories.map((category) => (
                                 <TabsTrigger key={category.category} value={category.category} className="flex flex-col sm:flex-row gap-2 items-center">
                                     {category.icon}
