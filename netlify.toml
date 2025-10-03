@@ -1,0 +1,20 @@
+# Netlify configuration file
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Command to build the site
+  command = "npm run build"
+  
+  # Directory to deploy
+  # This is the default for Next.js projects
+  publish = ".next"
+
+[build.environment]
+  # Disable Genkit telemetry during build on Netlify
+  GENKIT_TELEMETRY_DISABLED = "true"
+
+# The following plugin is required to deploy Next.js sites on Netlify.
+# It is automatically installed and configured.
+# For more information, see: https://github.com/netlify/next-runtime
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
