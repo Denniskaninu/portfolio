@@ -60,7 +60,7 @@ export default function AboutSection() {
                 <CardContent className="p-4">
                     <div className="aspect-square relative rounded-lg overflow-hidden">
                         <Image
-                            src="/profile.jpg"
+                            src="https://lh3.googleusercontent.com/gg-dl/AJfQ9KThWEf1AwYA17NXo3kf0x204Mc47S2fplpBlU4jg69D1GUL1orsSt61zyyH1QjNo7-iZCxwNoi21NumpS7JK2Qu9m1PaVrdT9bHEvj0QS2C90QGKVVOvxk4ScMUZsTEU236Crc-sv-TRlFYvzpKUALbMujQ4nn3Wn69YVyTrdI8tYz2=s1024"
                             alt="A photo of the developer"
                             fill
                             className="object-cover"
