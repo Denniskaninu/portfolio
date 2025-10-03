@@ -60,7 +60,7 @@ export default function HeroSection() {
 
           <motion.div variants={itemVariants} className="mt-12">
             <Button asChild variant="ghost" className="text-accent hover:text-accent-foreground">
-              <a href="#about">
+              <a href="#projects">
                 Explore My Work <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
