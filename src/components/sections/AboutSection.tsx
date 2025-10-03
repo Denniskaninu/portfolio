@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Server, Code, Database, Cloud, Terminal, TestTube, Lock } from 'lucide-react';
-import { ReactIcon, NextjsIcon, TailwindCssIcon, Html5Icon, PythonIcon, NodeIcon, PostgreSqlIcon, MySqlIcon, MongoDbIcon, FirebaseIcon, DockerIcon, KubernetesIcon, AwsIcon, GitIcon, TypescriptIcon, JavascriptIcon, GoIcon, RedisIcon, GraphqlIcon, SupabaseIcon, ExpressIcon, DjangoIcon, FastApiIcon } from '@/components/shared/TechIcons';
+import { Server, Code, Database, Cloud, Terminal, TestTube, Lock, Braces } from 'lucide-react';
+import { ReactIcon, NextjsIcon, TailwindCssIcon, Html5Icon, PythonIcon, NodeIcon, PostgreSqlIcon, MySqlIcon, MongoDbIcon, FirebaseIcon, DockerIcon, KubernetesIcon, AwsIcon, GitIcon, TypescriptIcon, JavascriptIcon, RedisIcon, GraphqlIcon, SupabaseIcon, ExpressIcon, DjangoIcon, FastApiIcon } from '@/components/shared/TechIcons';
 
 const skillCategories = [
   {
@@ -56,8 +56,8 @@ const skillCategories = [
     icon: <Terminal className="h-5 w-5" />,
     skills: [
       { name: "Git & GitHub", icon: <GitIcon /> },
-      { name: "Webpack", icon: <Code className="h-5 w-5" /> },
-      { name: "Babel", icon: <Code className="h-5 w-5" /> },
+      { name: "VS Code", icon: <Braces className="h-5 w-5" /> },
+      { name: "Postman", icon: <Braces className="h-5 w-5" /> },
     ],
   },
   {
