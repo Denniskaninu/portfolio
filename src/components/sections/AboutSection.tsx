@@ -1,44 +1,76 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Server, Code, Database, Cloud, Terminal, TestTube, Lock } from 'lucide-react';
+import { ReactIcon, NextjsIcon, TailwindCssIcon, Html5Icon, PythonIcon, NodeIcon, PostgreSqlIcon, MySqlIcon, MongoDbIcon, FirebaseIcon, DockerIcon, KubernetesIcon, AwsIcon, GitIcon, TypescriptIcon, JavascriptIcon, GoIcon, RedisIcon, GraphqlIcon } from '@/components/shared/TechIcons';
 
 const skillCategories = [
   {
     category: 'Frontend',
     icon: <Code className="h-5 w-5" />,
-    skills: ["React (TypeScript)", "Next.js", "HTML5, CSS3, TailwindCSS", "WebAssembly (WASM)", "Framer Motion"],
+    skills: [
+      { name: "React", icon: <ReactIcon /> },
+      { name: "Next.js", icon: <NextjsIcon /> },
+      { name: "TypeScript", icon: <TypescriptIcon /> },
+      { name: "JavaScript (ES6+)", icon: <JavascriptIcon /> },
+      { name: "TailwindCSS", icon: <TailwindCssIcon /> },
+      { name: "HTML5", icon: <Html5Icon /> },
+    ],
   },
   {
     category: 'Backend',
     icon: <Server className="h-5 w-5" />,
-    skills: ["Python (Django, FastAPI)", "Node.js (Express)", "Go (Golang)", "REST & GraphQL APIs", "Microservices"],
+    skills: [
+        { name: "Node.js", icon: <NodeIcon /> },
+        { name: "Python", icon: <PythonIcon /> },
+        { name: "Go (Golang)", icon: <GoIcon /> },
+        { name: "GraphQL", icon: <GraphqlIcon /> },
+    ],
   },
   {
     category: 'Databases',
     icon: <Database className="h-5 w-5" />,
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Vector Databases", "Supabase", "Firebase"],
+    skills: [
+        { name: "PostgreSQL", icon: <PostgreSqlIcon /> },
+        { name: "MySQL", icon: <MySqlIcon /> },
+        { name: "MongoDB", icon: <MongoDbIcon /> },
+        { name: "Firebase", icon: <FirebaseIcon /> },
+        { name: "Redis", icon: <RedisIcon /> },
+    ],
   },
   {
     category: 'DevOps & Cloud',
     icon: <Cloud className="h-5 w-5" />,
-    skills: ["Docker", "Kubernetes", "GitHub Actions (CI/CD)", "AWS (EC2, S3, Lambda)", "Terraform (IaC)"],
+    skills: [
+      { name: "Docker", icon: <DockerIcon /> },
+      { name: "Kubernetes", icon: <KubernetesIcon /> },
+      { name: "AWS", icon: <AwsIcon /> },
+      { name: "GitHub Actions", icon: <GitIcon /> },
+    ],
   },
   {
     category: 'Developer Tools',
     icon: <Terminal className="h-5 w-5" />,
-    skills: ["Git & GitHub", "VS Code", "Linux CLI", "Postman / Insomnia"],
+    skills: [
+      { name: "Git & GitHub", icon: <GitIcon /> },
+    ],
   },
   {
     category: 'Testing',
     icon: <TestTube className="h-5 w-5" />,
-    skills: ["Pytest (Python)", "Jest (JavaScript/TypeScript)", "Cypress (E2E)"],
+    skills: [
+      { name: "Pytest", icon: <PythonIcon /> },
+      { name: "Jest", icon: <JavascriptIcon /> },
+    ],
   },
     {
     category: 'Other Skills',
     icon: <Lock className="h-5 w-5" />,
-    skills: ["Auth (OAuth2, JWT)", "System Design", "Scalability Principles", "AI Integration (Genkit, LangChain)"],
+    skills: [
+        { name: "System Design"},
+        { name: "AI Integration"},
+        { name: "REST APIs"},
+    ],
   },
 ];
 
@@ -57,7 +89,7 @@ export default function AboutSection() {
   return (
     <SectionWrapper id="about">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold font-headline tracking-tight sm:text-5xl text-glow text-gradient">About Me</h2>
+        <h2 className="text-4xl font-bold font-headline tracking-tight sm:text-5xl text-gradient dark:text-glow">About Me</h2>
         <p className="mt-4 text-lg text-muted-foreground">A brief introduction to my skills and background.</p>
       </div>
 
@@ -103,7 +135,10 @@ export default function AboutSection() {
         <div className="lg:col-span-3">
             <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
                 <CardHeader>
-                    <CardTitle>🛠 Technical Skills</CardTitle>
+                    <CardTitle className="flex items-center gap-2">
+                        <span className="text-primary">🛠</span>
+                        Technical Skills
+                    </CardTitle>
                 </CardHeader>
                 <CardContent>
                     <Tabs defaultValue="Frontend" className="w-full">
@@ -117,11 +152,12 @@ export default function AboutSection() {
                         </TabsList>
                         {skillCategories.map((category) => (
                             <TabsContent key={category.category} value={category.category}>
-                                <div className="flex flex-wrap gap-3 py-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-4">
                                 {category.skills.map((skill) => (
-                                    <Badge key={skill} variant="secondary" className="text-sm px-4 py-2 border border-transparent hover:border-primary transition-all cursor-pointer">
-                                        {skill}
-                                    </Badge>
+                                    <div key={skill.name} className="flex items-center gap-3 bg-secondary/30 p-3 rounded-lg border border-transparent hover:border-primary/50 hover:bg-secondary/70 transition-all cursor-pointer">
+                                        {skill.icon && <div className="h-6 w-6 flex items-center justify-center">{skill.icon}</div>}
+                                        <span className="font-medium text-sm">{skill.name}</span>
+                                    </div>
                                 ))}
                                 </div>
                             </TabsContent>
