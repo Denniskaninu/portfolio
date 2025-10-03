@@ -4,7 +4,7 @@ Welcome to the repository for my personal developer portfolio! This project is a
 
 **[✨ View the Live Demo ✨](https://denniskaninu-portfolio.netlify.app/)**
 
-![Project Screenshot](https://via.placeholder.com/800x450.png?text=Your+Portfolio+Screenshot)
+![Project Screenshot](https://github.com/Denniskaninu/portfolio/blob/main/docs/image.png?raw=true)
 
 ---
 
