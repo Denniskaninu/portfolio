@@ -50,19 +50,19 @@ export default async function AboutSection() {
   return (
     <SectionWrapper id="about">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold font-headline tracking-tight sm:text-4xl text-glow">About Me</h2>
+        <h2 className="text-4xl font-bold font-headline tracking-tight sm:text-5xl text-glow">About Me</h2>
         <p className="mt-4 text-lg text-muted-foreground">A brief introduction to my skills and background.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <Card className="lg:col-span-2 bg-card/50 backdrop-blur-sm border-primary/20 shadow-lg shadow-primary/10">
+        <Card className="lg:col-span-2 bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
           <CardHeader>
             <CardTitle>Technical Skills</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-3">
               {allSkills.map((skill) => (
-                <Badge key={skill} variant="secondary" className="text-sm px-3 py-1 border border-transparent hover:border-primary transition-all cursor-pointer flex items-center gap-2">
+                <Badge key={skill} variant="secondary" className="text-sm px-4 py-2 border border-transparent hover:border-primary transition-all cursor-pointer flex items-center gap-2">
                   {skillIcons[skill.toLowerCase()] || <Code />}
                   {skill}
                 </Badge>
@@ -71,17 +71,17 @@ export default async function AboutSection() {
           </CardContent>
         </Card>
 
-        <Card className="bg-card/50 backdrop-blur-sm border-primary/20 shadow-lg shadow-primary/10">
+        <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
           <CardHeader>
             <CardTitle>Education</CardTitle>
           </CardHeader>
           <CardContent>
-            <h3 className="font-semibold">BSc in Computer Science</h3>
+            <h3 className="font-semibold text-primary">BSc in Computer Science</h3>
             <p className="text-muted-foreground">Karatina University</p>
           </CardContent>
         </Card>
 
-        <Card className="lg:col-span-3 bg-card/50 backdrop-blur-sm border-primary/20 shadow-lg shadow-primary/10">
+        <Card className="lg:col-span-3 bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
           <CardHeader>
             <CardTitle>Technical Summary</CardTitle>
           </CardHeader>

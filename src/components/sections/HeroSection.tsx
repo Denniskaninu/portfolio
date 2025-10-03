@@ -3,36 +3,50 @@
 import { motion } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Points, PointMaterial } from '@react-three/drei';
+import * as random from 'maath/random/dist/maath-random.esm';
+import { useRef, Suspense } from 'react';
+import type { Points as PointsType } from 'three';
 
-const KineticSphere = () => {
+const Stars = (props: any) => {
+  const ref = useRef<PointsType>();
+  const sphere = random.inSphere(new Float32Array(5000), { radius: 1.2 });
+
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
+    }
+  });
+
   return (
-    <div className="absolute inset-0 -z-10 flex items-center justify-center overflow-hidden [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
-      <motion.div
-        className="relative h-[400px] w-[400px] md:h-[600px] md:w-[600px]"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-      >
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute top-0 left-0 h-full w-full rounded-full border border-primary/20"
-            style={{ rotate: i * 45 }}
-            initial={{ scale: 0.2, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, delay: i * 0.2, ease: 'easeOut' }}
-          />
-        ))}
-      </motion.div>
-    </div>
+    <group rotation={[0, 0, Math.PI / 4]}>
+      <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
+        <PointMaterial
+          transparent
+          color="#ffffff"
+          size={0.002}
+          sizeAttenuation={true}
+          depthWrite={false}
+        />
+      </Points>
+    </group>
   );
 };
 
+const StarsCanvas = () => (
+  <div className="w-full h-auto absolute inset-0 z-[-1]">
+    <Canvas camera={{ position: [0, 0, 1] }}>
+      <Suspense fallback={null}>
+        <Stars />
+      </Suspense>
+    </Canvas>
+  </div>
+);
+
 
 export default function HeroSection() {
-  const heroBg = PlaceHolderImages.find(p => p.id === 'hero-background');
-  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,10 +63,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen w-full overflow-hidden">
-      {heroBg && <Image src={heroBg.imageUrl} alt={heroBg.description} data-ai-hint={heroBg.imageHint} fill className="object-cover opacity-10" />}
-      <KineticSphere />
-      <div className="container mx-auto flex h-screen flex-col items-center justify-center text-center px-4">
+    <section id="home" className="relative h-screen w-full mx-auto">
+      <StarsCanvas />
+      <div className="container mx-auto flex h-full flex-col items-center justify-center text-center px-4">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -79,7 +92,7 @@ export default function HeroSection() {
                 Download Portfolio
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="secondary">
               <a href="/recommendation-letter.pdf" download>
                 <Download className="mr-2 h-5 w-5" />
                 Recommendation Letter

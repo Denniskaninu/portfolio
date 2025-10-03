@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Downloads', href: '#downloads' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -32,11 +33,11 @@ export default function Header() {
       <motion.header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrolled ? 'py-2 bg-background/80 backdrop-blur-lg border-b border-border' : 'py-4'
+          scrolled ? 'py-3 bg-background/80 backdrop-blur-lg border-b border-border' : 'py-4'
         )}
       >
         <div className="container mx-auto flex items-center justify-between px-4">
-          <Link href="/" className="text-xl font-bold font-headline text-glow transition-all hover:text-primary">
+          <Link href="#home" className="text-xl font-bold font-headline text-glow transition-all hover:text-primary">
             Kinetic Folio
           </Link>
 
@@ -70,7 +71,7 @@ export default function Header() {
             className="fixed inset-0 z-50 bg-background/95 backdrop-blur-lg md:hidden"
           >
             <div className="container mx-auto px-4 pt-4 flex justify-between items-center">
-                <Link href="/" onClick={toggleMenu} className="text-xl font-bold font-headline text-glow">
+                <Link href="#home" onClick={toggleMenu} className="text-xl font-bold font-headline text-glow">
                     Kinetic Folio
                 </Link>
                 <Button onClick={toggleMenu} variant="ghost" size="icon">

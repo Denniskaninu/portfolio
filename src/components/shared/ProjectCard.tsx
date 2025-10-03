@@ -34,10 +34,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -10, transition: { duration: 0.3 } }}
       className="h-full"
     >
-      <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/20 shadow-lg shadow-primary/10 overflow-hidden flex flex-col group transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/20">
+      <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col group transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/10">
         <div className="relative w-full h-48 overflow-hidden">
           <Image
             src={project.image.imageUrl}
@@ -46,11 +45,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent"></div>
         </div>
 
         <CardHeader>
-          <CardTitle className="font-headline">{project.title}</CardTitle>
+          <CardTitle className="font-headline text-primary">{project.title}</CardTitle>
         </CardHeader>
         
         <CardContent className="flex-grow">
