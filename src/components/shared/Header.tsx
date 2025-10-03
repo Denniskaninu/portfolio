@@ -44,7 +44,7 @@ export default function Header() {
         )}
       >
         <div className="container mx-auto flex items-center justify-between px-4">
-          <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow transition-all hover:text-primary">
+          <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow text-gradient transition-all hover:text-primary">
             My Portfolio
           </Link>
 
@@ -81,7 +81,7 @@ export default function Header() {
             className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-lg md:hidden"
           >
             <div className="container mx-auto px-4 pt-4 flex justify-between items-center">
-                <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow">
+                <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow text-gradient">
                     My Portfolio
                 </Link>
                 <Button onClick={toggleMenu} variant="ghost" size="icon">

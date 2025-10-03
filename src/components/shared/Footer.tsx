@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold font-headline text-glow">My Portfolio</h3>
+            <h3 className="text-lg font-bold font-headline text-glow text-gradient">My Portfolio</h3>
             <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()}. All Rights Reserved.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4">

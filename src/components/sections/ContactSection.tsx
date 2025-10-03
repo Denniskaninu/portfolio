@@ -87,7 +87,7 @@ export default function ContactSection() {
   return (
     <SectionWrapper id="contact">
         <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-headline tracking-tight sm:text-4xl text-glow">Get In Touch</h2>
+            <h2 className="text-3xl font-bold font-headline tracking-tight sm:text-4xl text-glow text-gradient">Get In Touch</h2>
             <p className="mt-4 text-lg text-muted-foreground">I'm open to new opportunities and collaborations.</p>
         </div>
 

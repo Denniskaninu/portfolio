@@ -15,7 +15,7 @@ export default function DownloadsSection() {
   return (
     <SectionWrapper id="downloads">
       <div className="text-center">
-        <h2 className="text-3xl font-bold font-headline tracking-tight sm:text-4xl text-glow">Downloads</h2>
+        <h2 className="text-3xl font-bold font-headline tracking-tight sm:text-4xl text-glow text-gradient">Downloads</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
           Access my professional documents here.
         </p>

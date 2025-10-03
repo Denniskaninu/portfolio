@@ -57,7 +57,7 @@ export default function AboutSection() {
   return (
     <SectionWrapper id="about">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold font-headline tracking-tight sm:text-5xl text-glow">About Me</h2>
+        <h2 className="text-4xl font-bold font-headline tracking-tight sm:text-5xl text-glow text-gradient">About Me</h2>
         <p className="mt-4 text-lg text-muted-foreground">A brief introduction to my skills and background.</p>
       </div>
 
