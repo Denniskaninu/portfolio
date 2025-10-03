@@ -3,8 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Server, Code, BrainCircuit, Cloud, Cpu } from 'lucide-react';
-import { getInDemandSkills } from '@/ai/flows/ai-skill-highlighter';
-import AISkills from '../shared/AISkills';
 
 const skillCategories = [
   {
@@ -88,18 +86,6 @@ export default function AboutSection() {
                 <p className="text-muted-foreground leading-relaxed">
                   I am a results-oriented Full-Stack Developer with a passion for building innovative solutions and a strong interest in Artificial Intelligence. With a solid foundation in computer science and hands-on experience with modern web and mobile technologies, I excel at turning complex problems into elegant, high-performance applications. I thrive in collaborative environments and am committed to continuous learning to stay at the forefront of the ever-evolving tech landscape in Kenya and beyond.
                 </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
-              <CardHeader>
-                <CardTitle>AI-Powered Skill Highlights</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Using GenAI, here are the top skills currently trending in the Kenyan tech job market.
-                </p>
-                <AISkills />
               </CardContent>
             </Card>
         </div>
