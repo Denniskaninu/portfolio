@@ -33,7 +33,7 @@ export default function HeroSection() {
           className="relative z-10 flex flex-col items-center"
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="text-glow text-gradient">
+            <span className="text-gradient">
               {developerData.title}
             </span>
           </motion.h1>
@@ -44,13 +44,13 @@ export default function HeroSection() {
           
           <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg">
-              <a href="/portfolio.pdf" download>
+              <a href="/assets/denniskaninuresume.pdf" download>
                 <Download className="mr-2 h-5 w-5" />
                 Download Portfolio
               </a>
             </Button>
             <Button asChild size="lg" variant="secondary">
-              <a href="/recommendation-letter.pdf" download>
+              <a href="/assets/denniskaninurecomedatio.pdf" download>
                 <Download className="mr-2 h-5 w-5" />
                 Recommendation Letter
               </a>
