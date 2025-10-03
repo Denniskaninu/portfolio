@@ -10,7 +10,7 @@ export const developerData = {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/Denniswambui",
+      url: "https://www.linkedin.com/in/dennis-wambui/",
     },
     {
       name: "Twitter",
