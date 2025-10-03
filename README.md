@@ -2,8 +2,6 @@
 
 Welcome to the repository for my personal developer portfolio! This project is a modern, interactive, and fully responsive showcase of my skills and projects, designed to impress and engage potential employers.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_NETLIFY_BADGE_ID/deploy-status)](https://app.netlify.com/sites/YOUR_NETLIFY_SITE_NAME/deploys)
-
 **[✨ View the Live Demo ✨](https://denniskaninu-portfolio.netlify.app/)**
 
 ![Project Screenshot](https://via.placeholder.com/800x450.png?text=Your+Portfolio+Screenshot)
