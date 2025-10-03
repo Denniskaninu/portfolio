@@ -1,8 +1,10 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { developerData } from '@/lib/developer-data';
 
 export default function HeroSection() {
   const containerVariants = {
@@ -32,7 +34,7 @@ export default function HeroSection() {
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="text-glow text-gradient">
-              Software Developer
+              {developerData.title}
             </span>
           </motion.h1>
 

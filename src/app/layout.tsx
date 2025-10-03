@@ -1,12 +1,14 @@
+
 import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import './globals.css';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
+import { developerData } from '@/lib/developer-data';
 
 export const metadata: Metadata = {
-  title: 'My Portfolio',
-  description: 'Portfolio of a Competent Full-Stack Developer | AI Enthusiast | Problem Solver',
+  title: `${developerData.name}'s Portfolio`,
+  description: `Portfolio of ${developerData.name} | ${developerData.title}`,
 };
 
 export default function RootLayout({

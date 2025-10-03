@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -14,6 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Github, Linkedin, Twitter, Mail, Loader2 } from 'lucide-react';
+import { developerData } from '@/lib/developer-data';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -24,12 +26,11 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const socialLinks = [
-  { icon: Github, href: 'https://github.com', name: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com', name: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', name: 'Twitter' },
-  { icon: Mail, href: 'mailto:developer@example.com', name: 'Email' },
-];
+const socialIcons = {
+  GitHub: Github,
+  LinkedIn: Linkedin,
+  Twitter: Twitter,
+} as const;
 
 const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: string }) => {
     return (
@@ -166,13 +167,21 @@ export default function ContactSection() {
                     Connect with me through my social channels. I'm always happy to chat about technology, AI, or potential projects.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                    {socialLinks.map((link) => (
-                        <Button key={link.name} variant="outline" size="icon" asChild className="h-14 w-14 rounded-full transition-all duration-300 hover:bg-primary/20 hover:text-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/30">
-                            <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
-                                <link.icon className="h-6 w-6" />
+                    {developerData.socials.map((social) => {
+                      const Icon = socialIcons[social.name as keyof typeof socialIcons];
+                      return (
+                        <Button key={social.name} variant="outline" size="icon" asChild className="h-14 w-14 rounded-full transition-all duration-300 hover:bg-primary/20 hover:text-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/30">
+                            <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+                                {Icon && <Icon className="h-6 w-6" />}
                             </a>
                         </Button>
-                    ))}
+                      )
+                    })}
+                    <Button key="Email" variant="outline" size="icon" asChild className="h-14 w-14 rounded-full transition-all duration-300 hover:bg-primary/20 hover:text-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/30">
+                        <a href={`mailto:${developerData.contact.email}`} aria-label="Email">
+                            <Mail className="h-6 w-6" />
+                        </a>
+                    </Button>
                 </div>
             </motion.div>
         </div>

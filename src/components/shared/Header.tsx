@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -7,6 +8,7 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
+import { developerData } from '@/lib/developer-data';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -45,7 +47,7 @@ export default function Header() {
       >
         <div className="container mx-auto flex items-center justify-between px-4">
           <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow text-gradient transition-all hover:text-primary">
-            My Portfolio
+            {developerData.name}
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -82,7 +84,7 @@ export default function Header() {
           >
             <div className="container mx-auto px-4 pt-4 flex justify-between items-center">
                 <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow text-gradient">
-                    My Portfolio
+                    {developerData.name}
                 </Link>
                 <Button onClick={toggleMenu} variant="ghost" size="icon">
                     <X className="h-6 w-6" />
