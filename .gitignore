@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+.idx
+.next
 
 # next.js
 /.next/
