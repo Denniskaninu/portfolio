@@ -10,15 +10,15 @@ export const developerData = {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/your-profile",
+      url: "https://linkedin.com/in/Denniswambui",
     },
     {
       name: "Twitter",
-      url: "https://twitter.com/your-handle",
+      url: "https://twitter.com/Denniskaninu",
     },
   ],
   contact: {
-    email: "your.email@example.com",
+    email: "denniskaninu52@gmail.com",
   },
   education: {
     degree: "BSc in Computer Science",
