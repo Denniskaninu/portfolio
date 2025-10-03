@@ -1,48 +1,39 @@
-# Firebase Studio - User-specific files
-.idx/
-.modified/
-.DS_Store
-*.orig
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # Dependencies
 /node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
 
 # Next.js build output
 /.next/
 /out/
 
-# Production build artifacts
+# Production
 /build
 
-# Static exports
-/dist
-/export
+# Misc
+.DS_Store
+*.pem
 
-# Miscellaneous
-/.pnp
-.pnp.js
+# Firebase Studio specific
+.idx
+.modified
 
-# Environment variables
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment variables
 .env
-.env.local
+.env*.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor directories and files
-.vscode
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Test results
-/coverage
+# Netlify
+.netlify
