@@ -45,7 +45,7 @@ export default function Header() {
       >
         <div className="container mx-auto flex items-center justify-between px-4">
           <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow transition-all hover:text-primary">
-            Kinetic Folio
+            My Portfolio
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -82,7 +82,7 @@ export default function Header() {
           >
             <div className="container mx-auto px-4 pt-4 flex justify-between items-center">
                 <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow">
-                    Kinetic Folio
+                    My Portfolio
                 </Link>
                 <Button onClick={toggleMenu} variant="ghost" size="icon">
                     <X className="h-6 w-6" />

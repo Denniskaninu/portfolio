@@ -32,7 +32,7 @@ export default function HeroSection() {
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="text-glow animate-glow bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              Kinetic Folio
+              My Portfolio
             </span>
           </motion.h1>
 

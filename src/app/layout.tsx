@@ -5,7 +5,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
 
 export const metadata: Metadata = {
-  title: 'Kinetic Folio',
+  title: 'My Portfolio',
   description: 'Portfolio of a Competent Full-Stack Developer | AI Enthusiast | Problem Solver',
 };
 
