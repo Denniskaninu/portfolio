@@ -1,28 +1,59 @@
-import { getInDemandSkills } from '@/ai/flows/ai-skill-highlighter';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Server, Code, BrainCircuit, Bot, Database, Smartphone, Cloud, Wind } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Server, Code, BrainCircuit, Bot, Database, Smartphone, Cloud, Wind, Zap, Send, Move, Rabbit, Webhook, Cpu } from 'lucide-react';
 
-const HARDCODED_SKILLS = [
-  'Next.js', 'React', 'Node.js', 'Python', 'Django', 'TailwindCSS', 
-  'Docker', 'Cloud', 'AI/ML', 'Flutter', 'Mobile Dev', 'PostgreSQL', 'MongoDB'
+const skillCategories = [
+  {
+    category: 'Frontend',
+    icon: <Code className="h-5 w-5" />,
+    skills: [
+      { name: 'Next.js', icon: <Server /> },
+      { name: 'React', icon: <Code /> },
+      { name: 'Tailwind CSS', icon: <Wind /> },
+      { name: 'Qwik', icon: <Zap /> },
+      { name: 'HTMX', icon: <Send /> },
+      { name: 'Framer Motion', icon: <Move /> },
+    ],
+  },
+  {
+    category: 'Backend',
+    icon: <Server className="h-5 w-5" />,
+    skills: [
+      { name: 'Node.js', icon: <Server /> },
+      { name: 'Python', icon: <Code /> },
+      { name: 'Bun', icon: <Rabbit /> },
+      { name: 'GraphQL', icon: <Webhook /> },
+      { name: 'PostgreSQL', icon: <Database /> },
+      { name: 'MongoDB', icon: <Database /> },
+    ],
+  },
+  {
+    category: 'AI & ML',
+    icon: <BrainCircuit className="h-5 w-5" />,
+    skills: [
+      { name: 'Genkit', icon: <Cpu /> },
+      { name: 'TensorFlow', icon: <BrainCircuit /> },
+      { name: 'PyTorch', icon: <Bot /> },
+      { name: 'Scikit-learn', icon: <Cpu /> },
+      { name: 'LangChain', icon: <Send /> },
+      { name: 'Firebase GenAI', icon: <Cpu /> },
+    ],
+  },
+  {
+    category: 'DevOps & Cloud',
+    icon: <Cloud className="h-5 w-5" />,
+    skills: [
+      { name: 'Docker', icon: <Bot /> },
+      { name: 'Kubernetes', icon: <Cpu /> },
+      { name: 'Firebase', icon: <Cloud /> },
+      { name: 'AWS', icon: <Cloud /> },
+      { name: 'Terraform', icon: <Server /> },
+      { name: 'CI/CD', icon: <Send /> },
+    ],
+  },
 ];
 
-const skillIcons: { [key: string]: React.ReactNode } = {
-  'next.js': <Server />,
-  'react': <Code />,
-  'node.js': <Server />,
-  'python': <Code />,
-  'django': <Server />,
-  'tailwindcss': <Wind />,
-  'docker': <Bot />,
-  'cloud': <Cloud />,
-  'ai/ml': <BrainCircuit />,
-  'flutter': <Smartphone />,
-  'mobile dev': <Smartphone />,
-  'postgresql': <Database />,
-  'mongodb': <Database />,
-};
 
 const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: string }) => {
     return (
@@ -34,19 +65,7 @@ const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: strin
     );
 };
 
-export default async function AboutSection() {
-  let inDemandSkills: string[] = [];
-  try {
-    const { skills } = await getInDemandSkills();
-    inDemandSkills = skills;
-  } catch (error) {
-    console.error("AI Skill Highlighter failed:", error);
-    // Fallback to hardcoded skills if AI fails
-    inDemandSkills = [];
-  }
-
-  const allSkills = [...new Set([...inDemandSkills.slice(0, 10), ...HARDCODED_SKILLS])];
-
+export default function AboutSection() {
   return (
     <SectionWrapper id="about">
       <div className="text-center mb-12">
@@ -54,22 +73,39 @@ export default async function AboutSection() {
         <p className="mt-4 text-lg text-muted-foreground">A brief introduction to my skills and background.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <Card className="lg:col-span-2 bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
-          <CardHeader>
-            <CardTitle>Technical Skills</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-3">
-              {allSkills.map((skill) => (
-                <Badge key={skill} variant="secondary" className="text-sm px-4 py-2 border border-transparent hover:border-primary transition-all cursor-pointer flex items-center gap-2">
-                  {skillIcons[skill.toLowerCase()] || <Code />}
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="lg:col-span-2">
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
+                <CardHeader>
+                    <CardTitle>Technical Skills</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <Tabs defaultValue="Frontend" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 h-auto">
+                            {skillCategories.map((category) => (
+                                <TabsTrigger key={category.category} value={category.category} className="flex flex-col sm:flex-row gap-2 items-center">
+                                    {category.icon}
+                                    {category.category}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                        {skillCategories.map((category) => (
+                            <TabsContent key={category.category} value={category.category}>
+                                <div className="flex flex-wrap gap-3 py-4">
+                                {category.skills.map((skill) => (
+                                    <Badge key={skill.name} variant="secondary" className="text-sm px-4 py-2 border border-transparent hover:border-primary transition-all cursor-pointer flex items-center gap-2">
+                                        {skill.icon}
+                                        {skill.name}
+                                    </Badge>
+                                ))}
+                                </div>
+                            </TabsContent>
+                        ))}
+                    </Tabs>
+                </CardContent>
+            </Card>
+        </div>
+
 
         <Card className="bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5">
           <CardHeader>
