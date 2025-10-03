@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract futuristic background",
+      "imageUrl": "https://images.unsplash.com/photo-1557264322-b44d383a2906?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmt8ZW58MHx8fHwxNzU5NDIzMDg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract dark"
+    },
+    {
+      "id": "project-alpha",
+      "description": "Abstract visualization of project Alpha",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMHRlY2h8ZW58MHx8fHwxNzU5NDM1MDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract tech"
+    },
+    {
+      "id": "project-beta",
+      "description": "Abstract visualization of project Beta",
+      "imageUrl": "https://images.unsplash.com/photo-1754039984985-ef607d80113a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2RlJTIwbmVvbnxlbnwwfHx8fDE3NTk0OTUxNjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code neon"
+    },
+    {
+      "id": "project-gamma",
+      "description": "Abstract visualization of project Gamma",
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkYXRhJTIwbmV0d29ya3xlbnwwfHx8fDE3NTk0OTUxNjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data network"
+    },
+    {
+      "id": "project-delta",
+      "description": "Abstract visualization of project Delta",
+      "imageUrl": "https://images.unsplash.com/photo-1716237921133-7e0e8d790a5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaXJjdWl0cyUyMGZ1dHVyaXN0aWN8ZW58MHx8fHwxNzU5NDk1MTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "circuits futuristic"
+    }
+  ]
 }
