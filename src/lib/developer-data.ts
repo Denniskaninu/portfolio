@@ -1,12 +1,12 @@
 
 export const developerData = {
-  name: "Your Name",
+  name: "Dennis Kaninu",
   title: "Software Developer",
-  profileImage: "https://lh3.googleusercontent.com/gg-dl/AJfQ9KThWEf1AwYA17NXo3kf0x204Mc47S2fplpBlU4jg69D1GUL1orsSt61zyyH1QjNo7-iZCxwNoi21NumpS7JK2Qu9m1PaVrdT9bHEvj0QS2C90QGKVVOvxk4ScMUZsTEU236Crc-sv-TRlFYvzpKUALbMujQ4nn3Wn69YVyTrdI8tYz2=s1024",
+  profileImage: "https://github.com/Denniskaninu/portfolio/blob/main/docs/Gemini_Generated_Image_larotrlarotrlaro.png?raw=true",
   socials: [
     {
       name: "GitHub",
-      url: "https://github.com/your-username",
+      url: "https://github.com/Denniskaninu",
     },
     {
       name: "LinkedIn",
