@@ -27,7 +27,7 @@ export default function DownloadsSection() {
             </a>
           </Button>
           <Button size="lg" variant="secondary" asChild>
-            <a href="/assets/denniskaninurecomedatio.pdf" download>
+            <a href="/assets/denniskaninurecomedation.pdf" download>
               <Download className="mr-2 h-5 w-5" />
               Recommendation Letter
             </a>

@@ -17,6 +17,44 @@ const navLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
+const mobileMenuVariants = {
+  hidden: {
+    x: '-100%',
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+      damping: 20,
+    },
+  },
+  exit: {
+    x: '-100%',
+    opacity: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+      damping: 20,
+    },
+  },
+};
+
+const navLinksContainerVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const navLinkItemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } },
+};
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,34 +114,50 @@ export default function Header() {
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-lg md:hidden"
-          >
-            <div className="container mx-auto px-4 pt-4 flex justify-between items-center">
-                <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow text-gradient">
-                    {developerData.name}
-                </Link>
-                <Button onClick={toggleMenu} variant="ghost" size="icon">
-                    <X className="h-6 w-6" />
-                    <span className="sr-only">Close menu</span>
-                </Button>
-            </div>
-            <nav className="flex flex-col items-center justify-center h-full gap-8 -mt-12">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={handleLinkClick}
-                  className="text-2xl font-semibold text-foreground transition-colors hover:text-primary"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-          </motion.div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm md:hidden"
+              onClick={toggleMenu}
+            />
+            <motion.div
+              variants={mobileMenuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="fixed top-0 left-0 h-full w-4/5 max-w-sm z-[101] bg-background shadow-2xl md:hidden"
+            >
+              <div className="container mx-auto px-4 pt-4 flex justify-between items-center">
+                  <Link href="#home" onClick={handleLinkClick} className="text-xl font-bold font-headline text-glow text-gradient">
+                      {developerData.name}
+                  </Link>
+                  <Button onClick={toggleMenu} variant="ghost" size="icon">
+                      <X className="h-6 w-6" />
+                      <span className="sr-only">Close menu</span>
+                  </Button>
+              </div>
+              <motion.nav 
+                variants={navLinksContainerVariants}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-col items-center justify-center h-full gap-8 -mt-12"
+              >
+                {navLinks.map((link) => (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    variants={navLinkItemVariants}
+                    className="text-2xl font-semibold text-foreground transition-colors hover:text-primary"
+                  >
+                    {link.name}
+                  </motion.a>
+                ))}
+              </motion.nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
