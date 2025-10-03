@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Server, Code, Database, Cloud, Terminal, TestTube, Lock } from 'lucide-react';
-import { ReactIcon, NextjsIcon, TailwindCssIcon, Html5Icon, PythonIcon, NodeIcon, PostgreSqlIcon, MySqlIcon, MongoDbIcon, FirebaseIcon, DockerIcon, KubernetesIcon, AwsIcon, GitIcon, TypescriptIcon, JavascriptIcon, GoIcon, RedisIcon, GraphqlIcon } from '@/components/shared/TechIcons';
+import { ReactIcon, NextjsIcon, TailwindCssIcon, Html5Icon, PythonIcon, NodeIcon, PostgreSqlIcon, MySqlIcon, MongoDbIcon, FirebaseIcon, DockerIcon, KubernetesIcon, AwsIcon, GitIcon, TypescriptIcon, JavascriptIcon, GoIcon, RedisIcon, GraphqlIcon, SupabaseIcon, ExpressIcon, DjangoIcon, FastApiIcon } from '@/components/shared/TechIcons';
 
 const skillCategories = [
   {
@@ -22,8 +22,10 @@ const skillCategories = [
     icon: <Server className="h-5 w-5" />,
     skills: [
         { name: "Node.js", icon: <NodeIcon /> },
+        { name: "Express.js", icon: <ExpressIcon /> },
         { name: "Python", icon: <PythonIcon /> },
-        { name: "Go (Golang)", icon: <GoIcon /> },
+        { name: "Django", icon: <DjangoIcon /> },
+        { name: "FastAPI", icon: <FastApiIcon /> },
         { name: "GraphQL", icon: <GraphqlIcon /> },
     ],
   },
@@ -35,6 +37,7 @@ const skillCategories = [
         { name: "MySQL", icon: <MySqlIcon /> },
         { name: "MongoDB", icon: <MongoDbIcon /> },
         { name: "Firebase", icon: <FirebaseIcon /> },
+        { name: "Supabase", icon: <SupabaseIcon /> },
         { name: "Redis", icon: <RedisIcon /> },
     ],
   },
@@ -53,6 +56,8 @@ const skillCategories = [
     icon: <Terminal className="h-5 w-5" />,
     skills: [
       { name: "Git & GitHub", icon: <GitIcon /> },
+      { name: "Webpack", icon: <Code className="h-5 w-5" /> },
+      { name: "Babel", icon: <Code className="h-5 w-5" /> },
     ],
   },
   {
@@ -61,6 +66,7 @@ const skillCategories = [
     skills: [
       { name: "Pytest", icon: <PythonIcon /> },
       { name: "Jest", icon: <JavascriptIcon /> },
+      { name: "Cypress", icon: <Code className="h-5 w-5" /> },
     ],
   },
     {
@@ -70,6 +76,7 @@ const skillCategories = [
         { name: "System Design"},
         { name: "AI Integration"},
         { name: "REST APIs"},
+        { name: "Microservices"},
     ],
   },
 ];
