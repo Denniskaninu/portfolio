@@ -22,6 +22,7 @@ import { Github, Linkedin, Twitter, Mail, Loader2 } from 'lucide-react';
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
+  subject: z.string().min(5, { message: 'Subject must be at least 5 characters.' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
@@ -58,7 +59,7 @@ export default function ContactSection() {
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: { name: '', email: '', message: '' },
+    defaultValues: { name: '', email: '', subject: '', message: '' },
   });
 
   useEffect(() => {
@@ -78,9 +79,9 @@ export default function ContactSection() {
       }
     }
     if (state.errors) {
-      // Set form errors manually for react-hook-form to display
       if (state.errors.name) form.setError('name', { type: 'server', message: state.errors.name[0] });
       if (state.errors.email) form.setError('email', { type: 'server', message: state.errors.email[0] });
+      if (state.errors.subject) form.setError('subject', { type: 'server', message: state.errors.subject[0] });
       if (state.errors.message) form.setError('message', { type: 'server', message: state.errors.message[0] });
     }
   }, [state, toast, form]);
@@ -122,6 +123,19 @@ export default function ContactSection() {
                                             <FormLabel>Email</FormLabel>
                                             <FormControl>
                                                 <Input type="email" placeholder="your@email.com" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="subject"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Subject</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="What is this about?" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
