@@ -43,6 +43,7 @@ export const projects: Project[] = [
     description: 'A cross-platform mobile app to track workouts, set goals, and visualize progress. Built with a focus on performance and user experience.',
     techStack: ['Flutter', 'Firebase', 'Dart', 'Mobile Dev'],
     githubUrl: 'https://github.com',
+    liveDemoUrl: '#',
     image: findImage('project-gamma'),
   },
   {
