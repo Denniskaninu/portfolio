@@ -32,17 +32,14 @@ export default function HeroSection() {
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="text-glow text-gradient">
-              My Portfolio
+              Software Developer
             </span>
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-            BSc in Computer Science, Karatina University
+          <motion.p variants={itemVariants} className="mt-6 max-w-3xl text-lg text-muted-foreground sm:text-xl md:text-2xl">
+            With expertise in full-stack development, cloud integration, and AI-driven solutions, passionate about building efficient, user-focused applications.
           </motion.p>
-          <motion.h2 variants={itemVariants} className="mt-4 max-w-3xl font-headline text-2xl font-semibold md:text-3xl">
-            Competent Full-Stack Developer | AI Enthusiast | Problem Solver
-          </motion.h2>
-
+          
           <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg">
               <a href="/portfolio.pdf" download>
