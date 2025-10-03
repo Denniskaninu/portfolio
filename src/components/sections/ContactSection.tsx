@@ -1,14 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useActionState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useFormStatus } from 'react-dom';
 import { motion } from 'framer-motion';
 
-import { submitContactForm, type FormState } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
@@ -18,7 +15,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Github, Linkedin, Twitter, Mail, Loader2 } from 'lucide-react';
 
-
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
@@ -26,21 +22,14 @@ const contactFormSchema = z.object({
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
 const socialLinks = [
   { icon: Github, href: 'https://github.com', name: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com', name: 'LinkedIn' },
   { icon: Twitter, href: 'https://twitter.com', name: 'Twitter' },
   { icon: Mail, href: 'mailto:developer@example.com', name: 'Email' },
 ];
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Send Message'}
-    </Button>
-  );
-}
 
 const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: string }) => {
     return (
@@ -52,39 +41,48 @@ const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: strin
     );
 };
 
+// This is the Google Apps Script URL.
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby0cd3e_7Q6I_HuSKpDXcNjrOX3K3fmNeTAYspZP1uEnRP1hKhBsJTz7_O7E4_0XR8/exec';
+
 export default function ContactSection() {
   const { toast } = useToast();
-  const initialState: FormState = { message: '', success: false };
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<z.infer<typeof contactFormSchema>>({
+  const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: '', email: '', subject: '', message: '' },
   });
 
-  useEffect(() => {
-    if (state.message) {
-      if (state.success) {
-        toast({
-          title: 'Message Sent!',
-          description: state.message,
-        });
-        form.reset();
-      } else {
-        toast({
-          variant: 'destructive',
-          title: 'Oops!',
-          description: state.message,
-        });
-      }
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        mode: 'no-cors' 
+      });
+
+      toast({
+        title: 'Message Sent!',
+        description: "Thank you for your message! I'll get back to you soon.",
+      });
+      form.reset();
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Oops! Something went wrong.',
+        description: 'Sorry, there was an error sending your message. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-    if (state.errors) {
-      if (state.errors.name) form.setError('name', { type: 'server', message: state.errors.name[0] });
-      if (state.errors.email) form.setError('email', { type: 'server', message: state.errors.email[0] });
-      if (state.errors.subject) form.setError('subject', { type: 'server', message: state.errors.subject[0] });
-      if (state.errors.message) form.setError('message', { type: 'server', message: state.errors.message[0] });
-    }
-  }, [state, toast, form]);
+  };
+
 
   return (
     <SectionWrapper id="contact">
@@ -101,7 +99,7 @@ export default function ContactSection() {
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>
-                            <form action={formAction} className="space-y-6">
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                                 <FormField
                                     control={form.control}
                                     name="name"
@@ -154,7 +152,9 @@ export default function ContactSection() {
                                         </FormItem>
                                     )}
                                 />
-                                <SubmitButton />
+                                <Button type="submit" disabled={isSubmitting} className="w-full">
+                                  {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Send Message'}
+                                </Button>
                             </form>
                         </Form>
                     </CardContent>
