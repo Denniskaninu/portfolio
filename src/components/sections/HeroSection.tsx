@@ -3,48 +3,6 @@
 import { motion } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
-import * as random from 'maath/random/dist/maath-random.esm';
-import { useRef, Suspense } from 'react';
-import type { Points as PointsType } from 'three';
-
-const Stars = (props: any) => {
-  const ref = useRef<PointsType>();
-  const sphere = random.inSphere(new Float32Array(5000), { radius: 1.2 });
-
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
-    }
-  });
-
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
-        <PointMaterial
-          transparent
-          color="#ffffff"
-          size={0.002}
-          sizeAttenuation={true}
-          depthWrite={false}
-        />
-      </Points>
-    </group>
-  );
-};
-
-const StarsCanvas = () => (
-  <div className="w-full h-auto absolute inset-0 z-[-1]">
-    <Canvas camera={{ position: [0, 0, 1] }}>
-      <Suspense fallback={null}>
-        <Stars />
-      </Suspense>
-    </Canvas>
-  </div>
-);
-
 
 export default function HeroSection() {
   const containerVariants = {
@@ -63,8 +21,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative h-screen w-full mx-auto">
-      <StarsCanvas />
+    <section id="home" className="relative h-screen w-full mx-auto flex items-center justify-center">
+      <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-background via-blue-900/20 to-purple-900/20"></div>
       <div className="container mx-auto flex h-full flex-col items-center justify-center text-center px-4">
         <motion.div
           variants={containerVariants}
