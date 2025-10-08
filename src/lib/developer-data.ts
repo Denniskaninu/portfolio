@@ -23,5 +23,7 @@ export const developerData = {
   education: {
     degree: "BSc in Computer Science",
     university: "Karatina University",
+    years: "2022 - 2026 (Expected)",
+    achievement: "Consistent First-Class Honors student with a passion for AI.",
   }
 };

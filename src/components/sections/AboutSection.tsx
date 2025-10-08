@@ -127,9 +127,13 @@ export default function AboutSection() {
               <CardHeader>
                 <CardTitle>Education</CardTitle>
               </CardHeader>
-              <CardContent>
-                <h3 className="font-semibold text-primary">{developerData.education.degree}</h3>
-                <p className="text-muted-foreground">{developerData.education.university}</p>
+              <CardContent className="space-y-2">
+                <div>
+                  <h3 className="font-semibold text-primary">{developerData.education.degree}</h3>
+                  <p className="text-muted-foreground">{developerData.education.university}</p>
+                  <p className="text-sm text-muted-foreground">{developerData.education.years}</p>
+                </div>
+                <p className="text-sm text-foreground italic">"{developerData.education.achievement}"</p>
               </CardContent>
             </Card>
         </div>
