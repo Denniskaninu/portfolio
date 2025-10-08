@@ -34,12 +34,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -8, scale: 1.02 }}
+      whileHover={{ y: -10, rotate: -1, scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className="h-full group"
     >
         <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/20">
-          <div className="relative w-full h-48 overflow-hidden">
+          <div className="relative w-full h-40 overflow-hidden">
             <Image
               src={project.image.imageUrl}
               alt={project.image.description}
