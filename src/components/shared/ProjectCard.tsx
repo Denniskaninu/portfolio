@@ -34,15 +34,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="h-full"
-      style={{ perspective: 1000 }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      className="h-full group"
     >
-      <motion.div
-        whileHover={{ scale: 1.03, rotateX: 5, rotateY: 8 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="h-full"
-      >
-        <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col group transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20">
+        <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/20">
           <div className="relative w-full h-48 overflow-hidden">
             <Image
               src={project.image.imageUrl}
@@ -82,7 +78,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             )}
           </CardFooter>
         </Card>
-      </motion.div>
     </motion.div>
   );
 }
