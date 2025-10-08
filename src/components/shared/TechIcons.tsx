@@ -123,8 +123,10 @@ export const ReactIcon = () => (
   );
   
   export const SupabaseIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-full w-full" fill="currentColor" color="#3ECF8E">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 13.5L6 13V9l4.5 2.5v4zM12 11.5L7.5 9l4.5-2.5 4.5 2.5L12 11.5zm1.5 4L18 13V9l-4.5 2.5v4z" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="h-full w-full">
+      <path fill="#3ECF8E" d="M42,21c11.2,0,20,9.3,20,20.8S53.2,62.6,42,62.6S22,53.2,22,41.8S30.8,21,42,21z" />
+      <path fill="#3ECF8E" d="M2,21.5c11.2,0,20,9.3,20,20.8S13.2,63.1,2,63.1S-18,53.7-18,42.3S-9.2,21.5,2,21.5z" />
+      <path fill="#3ECF8E" d="M3.2,1.3C14.5,1.3,23.2,10,23.2,21s-8.8,19.7-20,19.7S-16.8,32-16.8,21S-8,1.3,3.2,1.3z" />
     </svg>
   );
 
