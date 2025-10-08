@@ -35,7 +35,7 @@ export default function HeroSection() {
           className="relative z-10 flex flex-col items-center"
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="text-gradient dark:text-glow animate-glow">
+            <span className="text-gradient">
               {developerData.title}
             </span>
           </motion.h1>
