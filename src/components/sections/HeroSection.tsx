@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
@@ -36,12 +35,12 @@ export default function HeroSection() {
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="text-gradient">
-              {developerData.title}
+              Software Developer & AI Enthusiast
             </span>
           </motion.h1>
 
           <motion.p variants={itemVariants} className="mt-6 max-w-3xl text-lg text-muted-foreground sm:text-xl md:text-2xl">
-            With expertise in full-stack development, cloud integration, and AI-driven solutions, passionate about building efficient, user-focused applications.
+            Passionate about crafting innovative software with the power of AI.
           </motion.p>
           
           <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4">
