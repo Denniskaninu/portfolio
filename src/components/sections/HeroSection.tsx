@@ -8,11 +8,14 @@ import { developerData } from '@/lib/developer-data';
 
 export default function HeroSection() {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
+        duration: 0.8,
+        ease: 'easeOut',
       },
     },
   };
@@ -32,7 +35,7 @@ export default function HeroSection() {
           className="relative z-10 flex flex-col items-center"
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="text-gradient dark:text-glow">
+            <span className="text-gradient dark:text-glow animate-glow">
               {developerData.title}
             </span>
           </motion.h1>
@@ -56,24 +59,6 @@ export default function HeroSection() {
             </Button>
           </motion.div>
         </motion.div>
-      </div>
-
-       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-20'>
-        <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
-            />
-          </div>
-        </a>
       </div>
     </section>
   );
