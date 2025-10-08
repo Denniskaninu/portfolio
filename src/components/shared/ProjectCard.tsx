@@ -34,18 +34,16 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -10, rotate: -1, scale: 1.02 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className="h-full group"
     >
-        <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/20">
+        <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-xl group-hover:shadow-primary/10">
           <div className="relative w-full aspect-square overflow-hidden">
             <Image
               src={project.image.imageUrl}
               alt={project.image.description}
               data-ai-hint={project.image.imageHint}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent"></div>
           </div>
