@@ -47,7 +47,7 @@ export default function HeroSection() {
             <Button asChild size="lg">
               <a href="/assets/denniskaninuresume.pdf" download>
                 <Download className="mr-2 h-5 w-5" />
-                Download Portfolio
+                Download Resume
               </a>
             </Button>
             <Button asChild size="lg" variant="secondary">

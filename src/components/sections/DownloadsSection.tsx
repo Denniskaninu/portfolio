@@ -33,7 +33,7 @@ export default function DownloadsSection() {
           <Button size="lg" asChild>
             <a href="/assets/denniskaninuresume.pdf" download>
               <Download className="mr-2 h-5 w-5" />
-              Download Resume/Portfolio
+              Download Resume
             </a>
           </Button>
           <Button size="lg" variant="secondary" asChild>
