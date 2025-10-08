@@ -19,7 +19,7 @@ export default function ProjectsSection() {
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">A selection of my recent work showcasing my skills in full-stack development and AI integration.</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {projects.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}
