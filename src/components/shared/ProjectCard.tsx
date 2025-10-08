@@ -39,7 +39,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       className="h-full group"
     >
         <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/20">
-          <div className="relative w-full h-40 overflow-hidden">
+          <div className="relative w-full aspect-square overflow-hidden">
             <Image
               src={project.image.imageUrl}
               alt={project.image.description}
@@ -54,7 +54,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <CardTitle className="font-headline text-primary">{project.title}</CardTitle>
           </CardHeader>
           
-          <CardContent className="flex-grow">
+          <CardContent className="flex-grow flex flex-col justify-between">
             <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
