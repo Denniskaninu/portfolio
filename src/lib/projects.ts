@@ -34,7 +34,7 @@ export const projects: Project[] = [
     description: 'A next-generation platform designed to help Kenyan developers and tech professionals discover verified job opportunities locally and abroad. It leverages generative AI (Google Gemini via Genkit) for intelligent job matching, resume insights, and personalized career recommendations. Built for speed, scalability, and a delightful user experience.',
     techStack: ['Next.js (App Router)', 'TypeScript', 'Tailwind CSS', 'ShadCN UI', 'Genkit (Google Gemini)'],
     githubUrl: 'https://github.com/Denniskaninu/smart-dev-kenya-jobs-finder.git',
-    liveDemoUrl: 'kenya-dev-smart-jobs-finder.netlify.app',
+    liveDemoUrl: 'https://kenya-dev-smart-jobs-finder.netlify.app',
     image: findImage('kenyan-tech-jobs-finder'),
 
   },
