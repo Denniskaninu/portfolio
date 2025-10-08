@@ -37,41 +37,41 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, amount: 0.3 }}
       className="h-full group"
     >
-      <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
+      <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
         <div className="relative w-full aspect-square overflow-hidden">
           <Image
             src={project.image.imageUrl}
             alt={project.image.description}
             data-ai-hint={project.image.imageHint}
             fill
-            className="object-cover transition-transform duration-500"
+            className="object-cover transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent"></div>
         </div>
 
-        <CardHeader>
-          <CardTitle className="font-headline text-primary">{project.title}</CardTitle>
+        <CardHeader className="p-4">
+          <CardTitle className="font-headline text-lg text-primary">{project.title}</CardTitle>
         </CardHeader>
         
-        <CardContent className="flex-grow flex flex-col justify-between">
-          <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-          <div className="flex flex-wrap gap-2">
+        <CardContent className="p-4 pt-0 flex-grow">
+          <p className="text-muted-foreground text-xs mb-3">{project.description}</p>
+          <div className="flex flex-wrap gap-1">
             {project.techStack.map((tech) => (
-              <Badge key={tech} variant="secondary">{tech}</Badge>
+              <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
             ))}
           </div>
         </CardContent>
 
-        <CardFooter className="flex justify-end gap-2 pt-4">
-          <Button variant="ghost" size="icon" asChild>
+        <CardFooter className="p-4 pt-0 flex justify-end gap-1">
+          <Button variant="ghost" size="icon" asChild className="h-8 w-8">
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
-              <Github className="h-5 w-5" />
+              <Github className="h-4 w-4" />
             </a>
           </Button>
           {project.liveDemoUrl && (
-            <Button variant="ghost" size="icon" asChild>
+            <Button variant="ghost" size="icon" asChild className="h-8 w-8">
               <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
-                <ExternalLink className="h-5 w-5" />
+                <ExternalLink className="h-4 w-4" />
               </a>
             </Button>
           )}
