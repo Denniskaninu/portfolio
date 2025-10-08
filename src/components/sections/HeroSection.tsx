@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { developerData } from '@/lib/developer-data';
-import ComputersCanvas from '../canvas/Computers';
 
 export default function HeroSection() {
   const containerVariants = {
@@ -33,7 +32,7 @@ export default function HeroSection() {
           className="relative z-10 flex flex-col items-center"
         >
           <motion.h1 variants={itemVariants} className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="text-gradient">
+            <span className="text-gradient dark:text-glow">
               {developerData.title}
             </span>
           </motion.h1>
@@ -57,10 +56,6 @@ export default function HeroSection() {
             </Button>
           </motion.div>
         </motion.div>
-      </div>
-
-      <div className="absolute inset-0 z-0 h-full w-full">
-        <ComputersCanvas />
       </div>
 
        <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-20'>
