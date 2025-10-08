@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Download, ArrowRight } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { developerData } from '@/lib/developer-data';
 import ComputersCanvas from '../canvas/Computers';
