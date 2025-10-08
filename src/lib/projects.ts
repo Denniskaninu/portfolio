@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description: 'A scalable and secure platform using Google AI to validate and automate financial transactions.',
     techStack: ['Next.js', 'Firebase', 'Google AI', 'Genkit'],
     githubUrl: 'https://github.com/Denniskaninu/chama-smart-sync.git',
-    liveDemoUrl: 'https://chama-smart-ke-snyc-ke.netlify.app/',
+    liveDemoUrl: 'https://chama-smart-snyc-ke.netlify.app/',
     image: findImage('chama-sync'),
   },
   {
