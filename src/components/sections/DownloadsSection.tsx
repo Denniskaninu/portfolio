@@ -1,13 +1,23 @@
+
+'use client';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 
 const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: string }) => {
     return (
-        <section id={id} className="py-20 sm:py-32">
+        <motion.section 
+            id={id} 
+            className="py-16 sm:py-24"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+        >
             <div className="container mx-auto px-4">
                 {children}
             </div>
-        </section>
+        </motion.section>
     );
 };
 

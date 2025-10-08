@@ -12,10 +12,12 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <DownloadsSection />
-        <ContactSection />
+        <div className="relative z-10 bg-background">
+          <AboutSection />
+          <ProjectsSection />
+          <DownloadsSection />
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

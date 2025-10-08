@@ -1,5 +1,8 @@
 
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Server, Code, Database, Cloud, Terminal, TestTube, Lock, Braces } from 'lucide-react';
@@ -85,11 +88,18 @@ const skillCategories = [
 
 const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: string }) => {
     return (
-        <section id={id} className="py-20 sm:py-32">
+        <motion.section 
+            id={id} 
+            className="py-16 sm:py-24"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+        >
             <div className="container mx-auto px-4">
                 {children}
             </div>
-        </section>
+        </motion.section>
     );
 };
 
@@ -98,7 +108,7 @@ export default function AboutSection() {
   return (
     <SectionWrapper id="about">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold font-headline tracking-tight sm:text-5xl text-gradient dark:text-glow">About Me</h2>
+        <h2 className="text-4xl font-bold font-headline tracking-tight sm:text-5xl text-gradient">About Me</h2>
         <p className="mt-4 text-lg text-muted-foreground">A brief introduction to my skills and background.</p>
       </div>
 
