@@ -29,13 +29,14 @@ export const projects: Project[] = [
     image: findImage('chama-sync'),
   },
   {
-    id: 'project-1',
-    title: 'AI-Powered E-commerce Platform',
-    description: 'A cutting-edge e-commerce platform that uses AI for personalized recommendations and dynamic pricing. Built with a microservices architecture.',
-    techStack: ['Next.js', 'Node.js', 'Python', 'PostgreSQL', 'Docker', 'AI/ML'],
-    githubUrl: 'https://github.com',
-    liveDemoUrl: '#',
-    image: findImage('project-alpha'),
+    id: 'kenyan-tech-jobs-finder',
+    title: 'AI-Powered Kenyan Tech Jobs Finder',
+    description: 'A next-generation platform designed to help Kenyan developers and tech professionals discover verified job opportunities locally and abroad. It leverages generative AI (Google Gemini via Genkit) for intelligent job matching, resume insights, and personalized career recommendations. Built for speed, scalability, and a delightful user experience.',
+    techStack: ['Next.js (App Router)', 'TypeScript', 'Tailwind CSS', 'ShadCN UI', 'Genkit (Google Gemini)'],
+    githubUrl: 'https://github.com/Denniskaninu/smart-dev-kenya-jobs-finder.git',
+    liveDemoUrl: 'kenya-dev-smart-jobs-finder.netlify.app',
+    image: findImage('kenyan-tech-jobs-finder'),
+
   },
   {
     id: 'project-2',
