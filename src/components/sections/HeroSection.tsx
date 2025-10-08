@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { developerData } from '@/lib/developer-data';
+import ComputersCanvas from '../canvas/Computers';
 
 export default function HeroSection() {
   const containerVariants = {
@@ -24,8 +25,7 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative h-screen w-full mx-auto flex items-center justify-center">
-      <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-background via-blue-900/20 to-purple-900/20"></div>
-      <div className="container mx-auto flex h-full flex-col items-center justify-center text-center px-4">
+      <div className="container mx-auto flex h-full flex-col items-center justify-center text-center px-4 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -56,15 +56,29 @@ export default function HeroSection() {
               </a>
             </Button>
           </motion.div>
-
-          <motion.div variants={itemVariants} className="mt-12">
-            <Button asChild variant="ghost" className="text-accent hover:text-accent-foreground">
-              <a href="#projects">
-                Explore My Work <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          </motion.div>
         </motion.div>
+      </div>
+
+      <div className="absolute inset-0 z-0 h-full w-full">
+        <ComputersCanvas />
+      </div>
+
+       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-20'>
+        <a href='#about'>
+          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+            <motion.div
+              animate={{
+                y: [0, 24, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className='w-3 h-3 rounded-full bg-secondary mb-1'
+            />
+          </div>
+        </a>
       </div>
     </section>
   );

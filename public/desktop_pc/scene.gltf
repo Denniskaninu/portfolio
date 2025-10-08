@@ -1,0 +1,296 @@
+{
+  "asset" : {
+    "generator" : "Khronos glTF Blender I/O v3.6.29",
+    "version" : "2.0"
+  },
+  "scene" : 0,
+  "scenes" : [
+    {
+      "name" : "Scene",
+      "nodes" : [ 0 ]
+    }
+  ],
+  "nodes" : [
+    {
+      "children" : [ 1 ],
+      "name" : "Sketchfab_Scene"
+    },
+    {
+      "children" : [ 2 ],
+      "name" : "Sketchfab_model",
+      "rotation" : [ -1.5707963705062866, 0, 0 ]
+    },
+    {
+      "children" : [ 3 ],
+      "name" : "root"
+    },
+    {
+      "children" : [ 4 ],
+      "name" : "GLTF_SceneRootNode"
+    },
+    {
+      "children" : [ 5, 6, 7 ],
+      "name" : "PC_0"
+    },
+    {
+      "mesh" : 0,
+      "name" : "Monitor_and_Keyboard_0"
+    },
+    {
+      "mesh" : 1,
+      "name" : "Monitor_and_Keyboard_1_1"
+    },
+    {
+      "mesh" : 2,
+      "name" : "PC_body_0"
+    }
+  ],
+  "meshes" : [
+    {
+      "name" : "Monitor_and_Keyboard_0_primitive_0",
+      "primitives" : [ {
+        "attributes" : {
+          "POSITION" : 0,
+          "NORMAL" : 1,
+          "TEXCOORD_0" : 2
+        },
+        "indices" : 3,
+        "material" : 0
+      } ]
+    },
+    {
+      "name" : "Monitor_and_Keyboard_1_1_primitive_0",
+      "primitives" : [ {
+        "attributes" : {
+          "POSITION" : 4,
+          "NORMAL" : 5,
+          "TEXCOORD_0" : 6
+        },
+        "indices" : 7,
+        "material" : 1
+      } ]
+    },
+    {
+      "name" : "PC_body_0_primitive_0",
+      "primitives" : [ {
+        "attributes" : {
+          "POSITION" : 8,
+          "NORMAL" : 9,
+          "TEXCOORD_0" : 10
+        },
+        "indices" : 11,
+        "material" : 2
+      } ]
+    }
+  ],
+  "materials" : [
+    {
+      "name" : "Monitor_and_Keyboard_0",
+      "normalTexture" : {
+        "index" : 0
+      },
+      "pbrMetallicRoughness" : {
+        "baseColorTexture" : {
+          "index" : 1
+        },
+        "metallicFactor" : 0,
+        "metallicRoughnessTexture" : {
+          "index" : 2
+        }
+      }
+    },
+    {
+      "alphaMode" : "BLEND",
+      "name" : "Monitor_and_Keyboard_1_1",
+      "normalTexture" : {
+        "index" : 0
+      },
+      "pbrMetallicRoughness" : {
+        "baseColorTexture" : {
+          "index" : 1
+        },
+        "metallicFactor" : 0,
+        "metallicRoughnessTexture" : {
+          "index" : 2
+        }
+      }
+    },
+    {
+      "name" : "PC_body_0",
+      "normalTexture" : {
+        "index" : 3
+      },
+      "pbrMetallicRoughness" : {
+        "baseColorTexture" : {
+          "index" : 4
+        },
+        "metallicFactor" : 0,
+        "metallicRoughnessTexture" : {
+          "index" : 5
+        }
+      }
+    }
+  ],
+  "accessors" : [
+    {
+      "bufferView" : 0,
+      "componentType" : 5126,
+      "count" : 3810,
+      "max" : [ 0.6300095915794373, 0.44976723194122314, 0.3640245795249939 ],
+      "min" : [ -0.6300095915794373, -0.44976723194122314, -0.3640245795249939 ],
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 1,
+      "componentType" : 5126,
+      "count" : 3810,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 2,
+      "componentType" : 5126,
+      "count" : 3810,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 3,
+      "componentType" : 5125,
+      "count" : 14208,
+      "type" : "SCALAR"
+    },
+    {
+      "bufferView" : 0,
+      "byteOffset" : 45720,
+      "componentType" : 5126,
+      "count" : 384,
+      "max" : [ 0.3235650956630707, 0.42848801612854004, -0.19889700412750244 ],
+      "min" : [ -0.3235650956630707, 0.16911229491233826, -0.22055628895759583 ],
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 1,
+      "byteOffset" : 45720,
+      "componentType" : 5126,
+      "count" : 384,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 2,
+      "byteOffset" : 30480,
+      "componentType" : 5126,
+      "count" : 384,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 3,
+      "byteOffset" : 28416,
+      "componentType" : 5125,
+      "count" : 1332,
+      "type" : "SCALAR"
+    },
+    {
+      "bufferView" : 0,
+      "byteOffset" : 50328,
+      "componentType" : 5126,
+      "count" : 434,
+      "max" : [ 0.14175376296043396, 0.17643950879573822, 0.334024578332901 ],
+      "min" : [ -0.14175376296043396, -0.17643950879573822, -0.334024578332901 ],
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 1,
+      "byteOffset" : 50328,
+      "componentType" : 5126,
+      "count" : 434,
+      "type" : "VEC3"
+    },
+    {
+      "bufferView" : 2,
+      "byteOffset" : 33552,
+      "componentType" : 5126,
+      "count" : 434,
+      "type" : "VEC2"
+    },
+    {
+      "bufferView" : 3,
+      "byteOffset" : 31080,
+      "componentType" : 5125,
+      "count" : 1956,
+      "type" : "SCALAR"
+    }
+  ],
+  "bufferViews" : [
+    {
+      "buffer" : 0,
+      "byteLength" : 55536,
+      "byteOffset" : 0
+    },
+    {
+      "buffer" : 0,
+      "byteLength" : 55536,
+      "byteOffset" : 55536
+    },
+    {
+      "buffer" : 0,
+      "byteLength" : 37024,
+      "byteOffset" : 111072
+    },
+    {
+      "buffer" : 0,
+      "byteLength" : 35004,
+      "byteOffset" : 148096
+    }
+  ],
+  "buffers" : [
+    {
+      "byteLength" : 183100,
+      "uri" : "scene.bin"
+    }
+  ],
+  "textures" : [
+    {
+      "source" : 0
+    },
+    {
+      "source" : 1
+    },
+    {
+      "source" : 2
+    },
+    {
+      "source" : 3
+    },
+    {
+      "source" : 4
+    },
+    {
+      "source" : 5
+    }
+  ],
+  "images" : [
+    {
+      "name" : "Monitor_and_Keyboard_0_normal",
+      "uri" : "textures/Monitor_and_Keyboard_0_normal.png"
+    },
+    {
+      "name" : "Monitor_and_Keyboard_0_baseColor",
+      "uri" : "textures/Monitor_and_Keyboard_0_baseColor.png"
+    },
+    {
+      "name" : "Monitor_and_Keyboard_0_metallicRoughness",
+      "uri" : "textures/Monitor_and_Keyboard_0_metallicRoughness.png"
+    },
+    {
+      "name" : "PC_body_0_normal",
+      "uri" : "textures/PC_body_0_normal.png"
+    },
+    {
+      "name" : "PC_body_0_baseColor",
+      "uri" : "textures/PC_body_0_baseColor.png"
+    },
+    {
+      "name" : "PC_body_0_metallicRoughness",
+      "uri" : "textures/PC_body_0_metallicRoughness.png"
+    }
+  ]
+}
