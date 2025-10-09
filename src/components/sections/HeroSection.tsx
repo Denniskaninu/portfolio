@@ -51,7 +51,7 @@ export default function HeroSection() {
               </a>
             </Button>
             <Button asChild size="lg" variant="secondary">
-              <a href="/assets/denniskaninurecomedatio.pdf" download>
+              <a href="/assets/denniskaninurecomedation.pdf" download>
                 <Download className="mr-2 h-5 w-5" />
                 Recommendation Letter
               </a>
