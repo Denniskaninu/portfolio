@@ -53,7 +53,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, amount: 0.3 }}
       className="group"
     >
-      <Card className="aspect-square bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 relative">
+      <Card className="aspect-square bg-card/50 backdrop-blur-sm border-primary/10 shadow-lg shadow-primary/5 overflow-hidden flex flex-col transition-all duration-300 md:hover:border-primary/50 md:hover:shadow-lg md:hover:shadow-primary/10 relative">
         <Image
           src={project.image.imageUrl}
           alt={project.image.description}
@@ -62,50 +62,78 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           className="object-cover transition-transform duration-300"
         />
         
-        {/* Static Title visible by default */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-          <motion.div variants={titleVariants} animate="hidden" whileHover="visible" >
-            <CardTitle className="font-headline text-lg text-primary">{project.title}</CardTitle>
-          </motion.div>
-        </div>
-
-        {/* Hover Content */}
-        <motion.div
-          className="absolute inset-0 z-20 flex flex-col justify-end"
-          variants={overlayVariants}
-          initial="hidden"
-          whileHover="visible"
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/80 to-transparent"></div>
-          <motion.div
-            className="relative p-4"
-            variants={contentVariants}
-          >
-            <CardTitle className="font-headline text-lg text-primary">{project.title}</CardTitle>
-            <p className="text-muted-foreground text-xs my-2">{project.description}</p>
-            
-            <div className="flex flex-wrap gap-1 mb-2">
-              {project.techStack.map((tech) => (
-                <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
-              ))}
-            </div>
-
-            <div className="flex justify-end gap-1">
+        {/* Mobile Content (always visible) */}
+        <div className="md:hidden absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background/95 via-background/80 to-transparent p-4 z-10">
+          <CardTitle className="font-headline text-lg text-primary">{project.title}</CardTitle>
+          <p className="text-muted-foreground text-xs my-2">{project.description}</p>
+          <div className="flex flex-wrap gap-1 mb-2">
+            {project.techStack.map((tech) => (
+              <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
+            ))}
+          </div>
+          <div className="flex justify-end gap-1">
+            <Button variant="ghost" size="icon" asChild className="h-8 w-8">
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                <Github className="h-4 w-4" />
+              </a>
+            </Button>
+            {project.liveDemoUrl && (
               <Button variant="ghost" size="icon" asChild className="h-8 w-8">
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
-                  <Github className="h-4 w-4" />
+                <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                  <ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
-              {project.liveDemoUrl && (
-                <Button variant="ghost" size="icon" asChild className="h-8 w-8">
-                  <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </Button>
-              )}
+            )}
+          </div>
+        </div>
+
+        {/* Desktop Hover Content */}
+        <div className="hidden md:block">
+            {/* Static Title visible by default */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                <motion.div variants={titleVariants} animate="hidden" whileHover="visible" >
+                    <CardTitle className="font-headline text-lg text-primary">{project.title}</CardTitle>
+                </motion.div>
             </div>
-          </motion.div>
-        </motion.div>
+
+            {/* Hover Content */}
+            <motion.div
+                className="absolute inset-0 z-20 flex flex-col justify-end"
+                variants={overlayVariants}
+                initial="hidden"
+                whileHover="visible"
+            >
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/80 to-transparent"></div>
+                <motion.div
+                    className="relative p-4"
+                    variants={contentVariants}
+                >
+                    <CardTitle className="font-headline text-lg text-primary">{project.title}</CardTitle>
+                    <p className="text-muted-foreground text-xs my-2">{project.description}</p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-2">
+                    {project.techStack.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
+                    ))}
+                    </div>
+
+                    <div className="flex justify-end gap-1">
+                    <Button variant="ghost" size="icon" asChild className="h-8 w-8">
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                        <Github className="h-4 w-4" />
+                        </a>
+                    </Button>
+                    {project.liveDemoUrl && (
+                        <Button variant="ghost" size="icon" asChild className="h-8 w-8">
+                        <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                            <ExternalLink className="h-4 w-4" />
+                        </a>
+                        </Button>
+                    )}
+                    </div>
+                </motion.div>
+            </motion.div>
+        </div>
       </Card>
     </motion.div>
   );
