@@ -49,7 +49,6 @@ const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: strin
     );
 };
 
-// This is the Google Apps Script URL.
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxtN09ImP6xFJcImP50I2rqZXGdo4RW0P_s4Jwc41_PNTMp3cYWToR-9Mqz58ZbxNvZ/exec';
 
 export default function ContactSection() {
@@ -65,28 +64,22 @@ export default function ContactSection() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors', // This is the key change to prevent CORS errors
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
-        const result = await response.json();
-        if (result.result === 'success') {
-          toast({
-            title: 'Message Sent!',
-            description: "Thank you for your message! I'll get back to you soon.",
-          });
-          form.reset();
-        } else {
-          throw new Error(result.message || 'An unknown error occurred on the server.');
-        }
-      } else {
-        throw new Error(`The server responded with status: ${response.status}`);
-      }
+      // Because of `mode: 'no-cors'`, we can't read the response.
+      // We optimistically assume success if the fetch call doesn't throw a network error.
+      toast({
+        title: 'Message Sent!',
+        description: "Thank you for your message! I'll get back to you soon.",
+      });
+      form.reset();
 
     } catch (error) {
       console.error('Form submission error:', error);
