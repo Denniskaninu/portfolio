@@ -50,7 +50,7 @@ const SectionWrapper = ({ children, id }: { children: React.ReactNode, id: strin
 };
 
 // This is the Google Apps Script URL.
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby0cd3e_7Q6I_HuSKpDXcNjrOX3K3fmNeTAYspZP1uEnRP1hKhBsJTz7_O7E4_0XR8/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxtN09ImP6xFJcImP50I2rqZXGdo4RW0P_s4Jwc41_PNTMp3cYWToR-9Mqz58ZbxNvZ/exec';
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -74,15 +74,18 @@ export default function ContactSection() {
       });
 
       if (response.ok) {
-        toast({
-          title: 'Message Sent!',
-          description: "Thank you for your message! I'll get back to you soon.",
-        });
-        form.reset();
+        const result = await response.json();
+        if (result.result === 'success') {
+          toast({
+            title: 'Message Sent!',
+            description: "Thank you for your message! I'll get back to you soon.",
+          });
+          form.reset();
+        } else {
+          throw new Error(result.message || 'An unknown error occurred on the server.');
+        }
       } else {
-        // If the server returns a non-200 status, we can show an error
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'The server returned an error.');
+        throw new Error(`The server responded with status: ${response.status}`);
       }
 
     } catch (error) {
