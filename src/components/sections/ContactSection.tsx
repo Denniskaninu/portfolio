@@ -63,34 +63,34 @@ export default function ContactSection() {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-    const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-
+    
     try {
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors', // This is important for Google Scripts to avoid CORS errors in the browser console
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
 
-      // With 'no-cors', the response will be 'opaque', meaning we can't read its content.
-      // A response type of 'opaque' typically means the request was sent, but the browser
-      // is blocking us from seeing the cross-origin response. For Google Scripts, this is
-      // the expected "success" case.
-      toast({
-        title: 'Message Sent!',
-        description: "Thank you for your message! I'll get back to you soon.",
-      });
-      form.reset();
+      if (response.ok) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thank you for your message! I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        // If the server returns a non-200 status, we can show an error
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'The server returned an error.');
+      }
 
     } catch (error) {
       console.error('Form submission error:', error);
       toast({
         variant: 'destructive',
         title: 'Uh oh! Something went wrong.',
-        description: 'There was a problem sending your message. Please try again later.',
+        description: 'There was a problem sending your message. Please try again later or contact me directly via email.',
       });
     } finally {
       setIsSubmitting(false);
