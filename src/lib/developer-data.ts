@@ -2,7 +2,7 @@
 export const developerData = {
   name: "Dennis Kaninu",
   title: "Software Developer & AI Enthusiast",
-  profileImage: "https://github.com/Denniskaninu/portfolio/blob/main/docs/gigapixel-1%20(1).png?raw=true",
+  profileImage: "https://github.com/Denniskaninu/portfolio/blob/main/docs/profilepic.png?raw=true",
   socials: [
     {
       name: "GitHub",
