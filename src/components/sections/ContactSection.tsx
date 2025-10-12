@@ -63,28 +63,33 @@ export default function ContactSection() {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-        mode: 'no-cors' 
+        body: formData,
       });
 
-      toast({
-        title: 'Message Sent!',
-        description: "Thank you for your message! I'll get back to you soon.",
-      });
-      form.reset();
-
+      // Google Apps Script redirects on success, check for redirect status
+      if (response.ok || response.type === 'opaque' || response.status === 0) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thank you for your message! I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Network response was not ok.');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       toast({
         variant: 'destructive',
         title: 'Oops! Something went wrong.',
-        description: 'Sorry, there was an error sending your message. Please try again.',
+        description: 'Sorry, there was an error sending your message. Please try again or contact me directly via email.',
       });
     } finally {
       setIsSubmitting(false);
