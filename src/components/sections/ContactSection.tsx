@@ -72,30 +72,26 @@ export default function ContactSection() {
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         body: formData,
+        mode: 'no-cors', // This is important for Google Scripts to avoid CORS errors in the browser console
       });
 
-      // Due to Google Script's CORS policy, we can't get a clean success response.
-      // If the request doesn't throw a network error, we can often assume it was accepted.
-      if (response.ok || response.type === 'opaque' || response.status === 0) {
-        toast({
-          title: 'Message Sent!',
-          description: "Thank you for your message! I'll get back to you soon.",
-        });
-        form.reset();
-      } else {
-        // This case is unlikely to be hit due to CORS, but is here for completeness.
-        throw new Error('Network response was not ok.');
-      }
-    } catch (error) {
-      // This catch block is crucial. A CORS error on fetch() for a Google Script
-      // usually means the request was sent, but the browser couldn't read the response.
-      // So, we'll optimistically assume success.
-      console.log('Form submission resulted in a CORS error, assuming success.', error);
+      // With 'no-cors', the response will be 'opaque', meaning we can't read its content.
+      // A response type of 'opaque' typically means the request was sent, but the browser
+      // is blocking us from seeing the cross-origin response. For Google Scripts, this is
+      // the expected "success" case.
       toast({
         title: 'Message Sent!',
-        description: "Thank you! Your message has been submitted.",
+        description: "Thank you for your message! I'll get back to you soon.",
       });
       form.reset();
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: 'There was a problem sending your message. Please try again later.',
+      });
     } finally {
       setIsSubmitting(false);
     }
