@@ -39,14 +39,14 @@ export const projects: Project[] = [
 
   },
   {
-    id: 'project-2',
-    title: 'Real-time Whiteboard',
-    description: 'A web app that allows multiple users to collaborate on a whiteboard in real-time.',
-    techStack: ['React', 'Node.js', 'WebSocket', 'MongoDB'],
-    githubUrl: 'https://github.com',
-    liveDemoUrl: '#',
-    image: findImage('project-beta'),
-  },
+  id: 'mpesa-push-stk',
+  title: 'M-Pesa STK Push Payment Integration',
+  description: 'A robust, production-ready Flask application for integrating M-Pesa STK Push payments with real-time transaction status tracking and smart phone number validation.',
+  techStack: ['Python', 'Flask', 'Tailwind CSS', 'M-Pesa API'],
+  githubUrl: 'https://github.com/Denniskaninu/mpesa-push-stk',
+  liveDemoUrl: '#',
+  image: findImage('mpesa-push-stk'),
+}
   {
     id: 'project-3',
     title: 'Mobile Fitness Tracker',
